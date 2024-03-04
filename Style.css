@@ -1,0 +1,112 @@
+.body{
+    background: url('Images\Background.webp');
+}.Navigation{
+    background: rgb(86, 236, 86);
+    display: flex;
+    
+}
+.Top{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+.logo{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    padding: 20px;
+}
+.Heading{
+    font-style: italic;
+    color: cornsilk;
+    font-weight: bold;
+    font-size: 38px;
+    padding-top: 10px;
+}
+.Navigation-down{
+    background-color: green;
+    display: flex;
+    justify-content: space-evenly;
+    height: 40px;
+}
+.Navigation-down button{
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+.searchbox{
+    padding: 180px 550px 50px 550px;
+}
+.search{
+    height: 40px;
+    width: 220px;
+    border-radius: 25px;
+    border: 1px green solid;
+    display: flex;
+    
+}
+.search input{
+    border-radius: 25px;
+    border: none;
+    outline-style: none;
+}
+.search-button{
+    background: none;
+    border: none;
+    padding-right: 5px;
+}
+.search-button img{
+    height: 30px;
+    width: 30px;
+}
+.Display img{
+    height: 350px;
+    width: 400px;
+    padding-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Display{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    background: green;
+    text-decoration: none;
+    width:  120px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+p{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.results{
+    color: green;
+    display: block;
+    text-align: center;
+    font-size: 74px;
+}
+.images img{
+    height: 400px;
+    width: 800px;
+    margin-top: 200px;
+    padding-left: 250px;
+}
+.images p{
+    display: block;
+    line-height: 25px;
+}
+.Navigation-down a{
+    padding-top: 3px;
+}

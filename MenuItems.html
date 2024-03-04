@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="Top">
+        <div class="Navigation">
+            <img src="Images/Logo.jpg" class="logo"/>
+            <h1 class="Heading">
+                Indian Food
+            </h1>
+        </div>
+        <div class="Navigation-down">
+            <a href="Index.html"><button class="Home">
+                Home
+            </button></a>
+            <a href="Ingredients.html"><button class="Ingredients">Ingredients</button></a>
+            
+            <a href="MenuItems.html"><button class="Menu">
+                Menu Items
+            </button></a>
+            <a href="Products.html"><button class="Products">
+                Products
+            </button></a>
+            <a href="Recipe.html"><button class="Recipes">
+                Recipes
+            </button></a>
+        </div>
+    </div>
+    <div class="searchbox">
+        <div class="search">
+            <input type="text" placeholder="Search Restaurants and Items"/>
+            <button class="search-button"><img src="Images/search.png"/></button>
+        </div>
+    </div>
+    <div class="results">
+        Your Search Results Appear Here
+    </div>
+    <div class="item">
+        <div class= "Display">
+        </div>
+    </div>
+    <script>
+        const searchbox = document.querySelector(".search input");
+        const searchbutton = document.querySelector(".search-button");
+        const display = document.querySelector(".Display")
+    
+        const apikey = "db254b5cd61744d39a2deebd9c361444";
+        const apiurl = "https://api.spoonacular.com/food/menuItems/search?query=";
+    
+        var container = document.querySelector('.Display');
+        function searchMenu(item){
+            fetch(apiurl + item + '&apiKey=db254b5cd61744d39a2deebd9c361444')
+            .then((res) => {
+                return res.json();
+            }).then((data)=> {
+                console.log(data);
+                container.innerHTML ='';
+                if(data.menuItems.length>0){
+                data.menuItems.forEach(items=>{
+                    const imageElement = document.createElement('img');
+                    imageElement.src = items.image;
+                    const nameElement = document.createElement('p');
+                    nameElement.textContent = items.title;
+                    const restaurantElement = document.createElement('p');
+                    
+                    restaurantElement.textContent = items.restaurantChain;
+                    container.appendChild(imageElement);
+                    container.appendChild(nameElement);
+                    container.appendChild(restaurantElement)
+                })
+            }
+            else{
+            const errorElement = document.createElement('p');
+            errorElement.textContent = "No Results Found";
+
+            container.appendChild(errorElement);
+        }
+            }).catch((err) => {
+                console.log(err);
+            });
+            
+        }
+        searchbutton.addEventListener("click", ()=>{
+            searchMenu(searchbox.value);
+        })
+    </script>
+</body>
+
+</html>
